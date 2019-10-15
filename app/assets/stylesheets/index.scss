@@ -6,18 +6,8 @@ body {
   height: 100%;
 }
 
-.success_message {
-  height: 25px;
-  background-color: #38aef0;
-  &__text {
-    color: $section-white;
-    text-align: center;
-    line-height: 25px;
-  }
-}
-
 .groups {
-  height: calc(100vh - 25px);
+  height: 100vh;
   width: 300px;
   float: left;
   &__name {
@@ -41,26 +31,26 @@ body {
     padding: 20px 20px 0;
     color: $section-white;
     background-color: #2f3e51;
-    height: calc(100vh - 125px);
+    height: calc(100vh - 100px);
     a {
       text-decoration: none;
       color: $section-white;
-      .group {
-        margin-bottom: 40px;
-        .group-name {
-          font-size: 15px;
-          margin-bottom: 5px;
-        }
-        .group-last {
-          font-size: 11px;
-        }
+    }
+    .group {
+      margin-bottom: 40px;
+      .group__name {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      .group__message{
+        font-size: 11px;
       }
     }
   }
 }
 
 .messages {
-  height: calc(100vh - 25px);
+  height: 100vh;
   width: calc(100vw - 300px);
   float: left;
   &__group-name {
@@ -96,7 +86,7 @@ body {
     }
   }
   &__chat {
-    height: calc(100vh - 215px);
+    height: calc(100vh - 190px);
     padding: 46px 40px;
     background-color: #fafafa;
     overflow: scroll;

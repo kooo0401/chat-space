@@ -1,25 +1,20 @@
-.success_message
-  .success_message__text
-    グループを作成しました
-
 .wrapper
   .groups
     .groups__name
       .name-user
-        hori
-        = link_to "#" do
-          = fa_icon 'cog'
-        = link_to "#" do
+        =current_user.name
+        = link_to edit_user_path(current_user) do
+          = fa_icon 'cog', class: 'icon'
+        = link_to new_group_path do
           = fa_icon 'edit' 
     .groups__list
-      %a(href='/')
-        = render partial: "group"
-        = render partial: "group"
-        = render partial: "group"
-        = render partial: "group"
-        = render partial: "group"
-        = render partial: "group"
-        = render partial: "group"
+      - current_user.groups.each do |group|
+        .group
+          = link_to group_messages_path(group) do
+            .group__name
+              =group.name
+            .group__message
+              メッセージはありません。
 
   .messages
     .messages__group-name
