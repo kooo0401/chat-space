@@ -12,7 +12,7 @@
         = link_to "#" do
           = fa_icon 'edit' 
     .groups__list
-      %a(href='/')
+      = link_to "#" do
         = render partial: "group"
         = render partial: "group"
         = render partial: "group"
@@ -26,7 +26,7 @@
       .name-full
         %h2.name-letter グループ一覧
         %ul.group-member Member：kaede hori
-      %button{:name => "name", :type => "submit", :value => "value"} Edit
+      %button Edit
     .messages__chat
       .chat-text
         = render partial: "list"
@@ -40,8 +40,8 @@
     .messages__form
       .form-wrap
         .input-field
-          %input#message.input-field__box{:name => "message", :placeholder => "type a message", :type => "text"}
+          %input#message.input-field__box{name: "message", placeholder: "type a message", type: "text"}
           %label.input-field__icon
             = fa_icon 'image'
-            %input#input.icon__file{:type => "file"}
-        %button{:name => "name", :type => "submit", :value => "value"} Send
+            %input#input.icon__file{type: "file"}
+        %button{name: "name", type: "submit", value: "value"} Send
