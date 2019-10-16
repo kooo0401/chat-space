@@ -1,45 +1,54 @@
+
+
 .side-bar {
-  box-sizing: border-box;
-  color: $white;
   width: 300px;
-  .header {
-    background-color: $side_blue_dark;
+  color: white;
+  float: left;
+  .head {
+    background-color: #253141;
     height: 100px;
-    line-height: 100px;
+    display: flex;
+    align-items: center;
     padding: 0 20px;
-    &__name {
-      display: inline-block;
-      font-size: 14px;//$side_header_font;
-      font-weight: bold;
-    }
-    &__lists {
-      display: inline-block;
-      float: right;
-      .list {
-        display: inline-block;
+    .side-header__box {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      .head__name {
+        margin: 0;
+        padding: 0;
+        font-weight: bold;
       }
-      .icon {
-        color: $white;
-        font-size: 14px;//$side_header_font;
+      .head__lists {
+        display: flex;
+        .list {
+          margin-left: 0.3rem;
+          font-weight: bold;
+          font-size: 1rem;
+          a {
+            color: white;
+          }
+        }
       }
     }
   }
-
-  .groups {
-    background-color: $side_blue_light;
+  .group-name-list {
+    padding: 20px 20px 0;
+    color: $section-white;
+    background-color: #2f3e51;
     height: calc(100vh - 100px);
-    padding: 0 20px;
+    a {
+      text-decoration: none;
+      color: $section-white;
+    }
     .group {
-      box-sizing: border-box;
-      padding: 20px 0 40px;
+      margin-bottom: 40px;
       &__name {
-        color: $white;
-        font-size: 14px;//$side_group_name;
+        font-size: 15px;
+        margin-bottom: 5px;
       }
-      &__message {
-        color: $white;
-        font-size: 14px;//$side_group_message;
-        margin-top: 5px;
+      &__message{
+        font-size: 11px;
       }
     }
   }
