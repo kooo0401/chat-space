@@ -1,5 +1,3 @@
-
-
 .side-bar {
   width: 300px;
   color: white;
@@ -37,6 +35,7 @@
     color: $section-white;
     background-color: #2f3e51;
     height: calc(100vh - 100px);
+    overflow: scroll;
     a {
       text-decoration: none;
       color: $section-white;
