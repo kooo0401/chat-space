@@ -5,6 +5,10 @@ html {
 body {
   height: 100%;
 }
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+}
 
 .groups {
   height: 100vh;
@@ -53,7 +57,7 @@ body {
   height: 100vh;
   width: calc(100vw - 300px);
   float: left;
-  &__group-name {
+  .header-menu {
     height: 100px;
     padding: 0 40px;
     display: flex;
@@ -85,82 +89,88 @@ body {
       font-size: 20px;
     }
   }
-}
-.messages {
-  height: calc(100vh - 190px);
-  padding: 46px 40px;
-  background-color: #fafafa;
-  overflow: scroll;
-  .message__group-name {
-    padding-bottom: 40px;
-    margin: 0;
-    padding: 0 0 40px;
-    box-sizing: border-box;
-    .upper-message {
-      color: $section-gray;
-      font-size: 16px;
-      display: flex;
-      margin-bottom: 10px;
-      &__user-name {
+  .group-name{
+    height: calc(100vh - 190px);
+    padding: 46px 40px;
+    background-color: #fafafa;
+    overflow: scroll;
+    .message-content{
+      padding-bottom: 40px;
+      .upper-message {
         color: $section-gray;
         font-size: 16px;
-        font-weight: bold;
-        box-sizing: border-box;
+        display: flex;
+        margin-bottom: 10px;
+        &__user-name {
+          color: $section-gray;
+          font-size: 16px;
+          font-weight: bold;
+          box-sizing: border-box;
+        }
+        &__date {
+          font-size: 12px;
+          color: #999999;
+          margin: 0 0 0 10px;
+        }
       }
-      &__date {
-        font-size: 12px;
-        color: #999999;
-        margin: 0 0 0 10px;
-      }
-    }
-    .lower-message {
-      color: $section-gray;
-      font-size: 14px;
-      margin-bottom: 10px;
-      padding: 0 0 40px;
-      &__content{
-        color: black;
+      .lower-message {
+        color: $section-gray;
         font-size: 14px;
-        margin-bottom: 40px;
-        
+        margin-bottom: 10px;
+        &__content{
+          color: #434a54;
+          font-size: 14px;
+          margin-bottom: 10px;
+          
+        }
       }
     }
   }
-}
-.__form {
-  height: 90px;
-  padding: 20px 40px;
-  background-color: #ddd;
-  .form-wrap {
-    display: flex;
-    .input-field {
-      width: 100%;
-      position: relative;
-      &__box {
-        height: 50px;
+  .form {
+    height: 90px;
+    padding: 20px 40px;
+    background-color: #ddd;
+    #new_message {
+      display: flex;
+      .input-box {
+        position: relative;
         width: 100%;
-        font-size: 16px;
-        padding: 0 40px 0 10px;
+        .form__message {
+          height: 50px;
+          width: 100%;
+          padding: 0 40px 0 10px;
+          color: #434a54;
+          border-style: none;
+        }
+        .form__mask {
+          &__image {
+            font-size: 1.3rem;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            .icon {
+              display: inline-block;
+              font: normal normal normal 14px/1 FontAwesome;
+              font-size: inherit;
+              text-rendering: auto;
+              -webkit-font-smoothing: antialiased;
+            }
+            .hidden {
+              display: none;
+            }
+          }
+        }
       }
-      &__icon {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 20px;
+      .form__submit {
+        width: 100px;
+        height: 50px;
+        padding: 0 30px;
+        margin-left: 15px;
+        background-color: #38aef0;
+        color: white;
+        cursor: pointer;
       }
-      .icon__file {
-        display: none;
-      }
-    }
-    button {
-      width: 100px;
-      height: 50px;
-      padding: 0 30px;
-      margin-left: 15px;
-      background-color: #38aef0;
-      color: $section-white;
-      cursor: pointer;
-      font-size: 17px;
     }
   }
 }

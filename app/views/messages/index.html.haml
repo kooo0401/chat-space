@@ -16,13 +16,14 @@
             .group__message
               メッセージはありません。
 
-  .messages
-    = render @messages
-    -# .messages__group-name
-    -#   .name-full
-    -#     %h2.name-letter グループ一覧
-    -#     %ul.group-member Member：kaede hori
-    -#   %button{:name => "name", :type => "submit", :value => "value"} Edit
+  .header
+    .header-menu
+      .name-full
+        %h2.name-letter グループ一覧
+        %ul.group-member Member：kaede hori
+      %button{:name => "name", :type => "submit", :value => "value"} Edit
+    .group-name
+      = render @messages
     -# .messages__chat
     -#   .chat-text
     -#     = render partial: "list"
@@ -34,14 +35,15 @@
     -#     = render partial: "list"
     -#     = render partial: "list"
 
-  .form
-    = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-      .form__mask
-        = f.label :image, class: 'form__mask__image' do
-          = fa_icon 'picture-o', class: 'icon'
-          = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'form__submit'
+    .form
+      = form_for [@group, @message] do |f|
+        .input-box
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          .form__mask
+            = f.label :image, class: 'form__mask__image' do
+              = fa_icon 'picture-o', class: 'icon'
+              = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
 
     -# .messages__form
     -#   .form-wrap
