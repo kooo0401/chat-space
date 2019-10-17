@@ -4,9 +4,14 @@
   .header
     .header-menu
       .name-full
-        %h2.name-letter 変更要
-        %ul.group-member Member：変更要
-      %button{:name => "name", :type => "submit", :value => "value"} 変更要
+        %h2.name-letter 
+          = @group.name 
+        %ul.group-member
+          Member：
+          - @members.each do |member|
+            = member 
+      = link_to 'edit', class: 'link_to_button' do
+        Edit
     .group-name
       = render @messages
 
