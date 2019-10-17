@@ -1,39 +1,14 @@
 .wrapper
-  .groups
-    .groups__name
-      .name-user
-        =current_user.name
-        = link_to edit_user_path(current_user) do
-          = fa_icon 'cog', class: 'icon'
-        = link_to new_group_path do
-          = fa_icon 'edit' 
-    .groups__list
-      - current_user.groups.each do |group|
-        .group
-          = link_to group_messages_path(group) do
-            .group__name
-              =group.name
-            .group__message
-              メッセージはありません。
+  = render 'shared/side_bar' 
 
   .header
     .header-menu
       .name-full
-        %h2.name-letter グループ一覧
-        %ul.group-member Member：kaede hori
-      %button{:name => "name", :type => "submit", :value => "value"} Edit
+        %h2.name-letter 変更要
+        %ul.group-member Member：変更要
+      %button{:name => "name", :type => "submit", :value => "value"} 変更要
     .group-name
       = render @messages
-    -# .messages__chat
-    -#   .chat-text
-    -#     = render partial: "list"
-    -#     = render partial: "list"
-    -#     = render partial: "list"
-    -#     = render partial: "list"
-    -#     = render partial: "list"
-    -#     = render partial: "list"
-    -#     = render partial: "list"
-    -#     = render partial: "list"
 
     .form
       = form_for [@group, @message] do |f|
@@ -44,15 +19,4 @@
               = fa_icon 'picture-o', class: 'icon'
               = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'form__submit'
-
-    -# .messages__form
-    -#   .form-wrap
-    -#     .input-field
-    -#       %input#message.input-field__box{:name => "message", :placeholder => "type a message", :type => "text"}
-    -#       %label.input-field__icon
-    -#         = fa_icon 'image'
-    -#         %input#input.icon__file{:type => "file"}
-    -#     %button{:name => "name", :type => "submit", :value => "value"} Send
-
-
 
