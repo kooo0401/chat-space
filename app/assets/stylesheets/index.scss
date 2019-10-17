@@ -4,6 +4,7 @@ html {
 
 body {
   height: 100%;
+  overflow: hidden;
 }
 .wrapper {
   height: 100vh;
@@ -77,7 +78,7 @@ body {
         color: #999999;
       }
     }
-    button {
+    .link_to_button {
       height: 40px;
       line-height: 40px;
       padding: 0 20px;
@@ -87,6 +88,7 @@ body {
       right: 40px;
       color: #38aef0;
       font-size: 20px;
+      text-decoration: none;
     }
   }
   .group-name{
@@ -128,8 +130,12 @@ body {
   }
   .form {
     height: 90px;
+    width: calc(100vw - 300px);
     padding: 20px 40px;
     background-color: #ddd;
+    position: fixed;
+    bottom: 0;
+    right: 0;
     #new_message {
       display: flex;
       .input-box {
