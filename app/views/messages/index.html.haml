@@ -9,7 +9,7 @@
         %ul.group-member
           Member：
           - @members.each do |member|
-            = member 
+            = member.name
       = link_to 'edit', class: 'link_to_button' do
         Edit
     .group-name
