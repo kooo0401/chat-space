@@ -10,24 +10,24 @@ $(function(){
 
   function buildHTML(message){
     let image = (message.image.url)?`<img src=${message.image.url} class="lower-message__image">`:"";
-    let html = '<div class="message-content">' +
-                  '<div class="upper-message">' +
-                    '<div class="upper-message__user-name">' +
-                      message.user_name +
-                    '</div>' +
-                    '<div class="upper-message__date">' +
-                      message.date +
-                    '</div>' +
-                  '</div>' +
-                  '<div class="lower-message">' +
-                    '<p class="lower-message__content">' +
-                      message.content +
-                    '</p>' +
-                    '<div class="lower-message__image">' +
-                      image +
-                    '</div>' +
-                  '</div>' +
-                '</div>'
+    let html = `<div class="message-content">
+                  <div class="upper-message">
+                    <div class="upper-message__user-name">
+                      ${message.user_name}
+                    </div>
+                    <div class="upper-message__date">
+                      ${message.date}
+                    </div>
+                  </div>
+                  <div class="lower-message">
+                    <p class="lower-message__content">
+                      ${message.content}
+                    </p>
+                    <div class="lower-message__image">
+                      ${image}
+                    </div>
+                  </div>
+                </div>`
     return html;
   }
 
@@ -46,8 +46,12 @@ $(function(){
     .done(function(data){
       let html = buildHTML(data);
       $('.group-name').append(html);
-      $('#message_content').val('');
-      $('.hidden').val('');
+        $('#new_message').submit(function(){
+          $('#new_message')[0].reset();
+        });
+        $('.hidden').submit(function(){
+          $('.hidden')[0].reset();
+        });
       $('.group-name').animate({ scrollTop: $('.group-name')[0].scrollHeight});
     })
     .fail(function(){
