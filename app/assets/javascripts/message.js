@@ -1,5 +1,27 @@
 $(function(){
 
+  var buildMessageHTML = function(message) {
+
+    let image_url = (message.image)? `<image class="lower-message_image" src="${message.image}">`:"";
+    let html = `<div class="message-content" data-id="${message.id}">
+                  <div class="upper-message">
+                    <div class="upper-message__user-name">
+                      ${message.user_name}
+                    </div>
+                    <div class="upper-message__date">
+                      ${message.created_at}
+                    </div>
+                  </div>
+                  <div class="lower-message">
+                    <p class="lower-message__content">
+                      ${message.content}
+                    </p>
+                  ${image_url}
+                </div>`
+
+    return(html);
+  }
+
   function scrollBottom(){
     let target = $('#new_message').last();
     let position = target.offset().top + $('#new_message').scrollTop();
@@ -60,6 +82,26 @@ $(function(){
     .always(function(){
       $('input').prop('disabled', false);
     })
-  })
-})
+  });
 
+  function reloadMessages () {
+    let last_message_id = $('.message-content').last().data('id'); 
+    $.ajax({
+    url: 'api/messages',
+    type: 'get',
+    data: {id: last_message_id},
+    dataType: 'json'
+    })
+    .done(function(messages) {
+      messages.forEach(function(message){
+        let insertHTML = buildMessageHTML(message)
+        $('.group-name').append(insertHTML)
+      });
+      $('.group-name').animate({scrollTop: $('.group-name')[0].scrollHeight}, 'fast');
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+  setInterval(reloadMessages, 5000);
+})
