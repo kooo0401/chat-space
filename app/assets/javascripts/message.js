@@ -46,7 +46,7 @@ $(function(){
     .done(function(data){
       let html = buildHTML(data);
       $('.group-name').append(html);
-        $('#new_message').submit(function(){
+        $('#new_message').submit(function(){  //省略方法聞く
           $('#new_message')[0].reset();
         });
         $('.hidden').submit(function(){
