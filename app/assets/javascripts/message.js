@@ -1,6 +1,7 @@
 $(function(){
 
-  var buildMessageHTML = function(message) {
+  let timer;
+  let buildMessageHTML = function(message) {
 
     let image_url = (message.image)? `<image class="lower-message_image" src="${message.image}">`:"";
     let html = `<div class="message-content" data-id="${message.id}">
@@ -68,12 +69,7 @@ $(function(){
     .done(function(data){
       let html = buildHTML(data);
       $('.group-name').append(html);
-        $('#new_message').submit(function(){
-          $('#new_message')[0].reset();
-        });
-        $('.hidden').submit(function(){
-          $('.hidden')[0].reset();
-        });
+      $('form').get(0).reset();
       $('.group-name').animate({ scrollTop: $('.group-name')[0].scrollHeight});
     })
     .fail(function(){
@@ -83,6 +79,7 @@ $(function(){
       $('input').prop('disabled', false);
     })
   });
+
 
   function reloadMessages () {
     let last_message_id = $('.message-content').last().data('id'); 
@@ -103,5 +100,9 @@ $(function(){
       console.log('error');
     });
   };
-  setInterval(reloadMessages, 5000);
+  if (window.location.href.match(/\/groups\/\d{1,}\/messages/)) {
+    timer = setInterval(reloadMessages, 5000);
+  } else {
+    clearInterval(timer);
+  }
 })
