@@ -1,7 +1,7 @@
 $(function(){
 
   let timer;
-  let buildMessageHTML = function(message) {
+  function buildMessageHTML(message) {
 
     let image_url = (message.image)? `<image class="lower-message_image" src="${message.image}">`:"";
     let html = `<div class="message-content" data-id="${message.id}">

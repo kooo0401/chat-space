@@ -42,6 +42,7 @@ $(function() {
       $("#user-search-result").empty()
       if (users.length !== 0 && input.length !== 0) {
         users.forEach(function(user){
+          console.log(user)
           appendList(user);
         });
       }
