@@ -78,6 +78,7 @@ $(function(){
     .always(function(){
       $('input').prop('disabled', false);
     })
+    return false;
   });
 
 
