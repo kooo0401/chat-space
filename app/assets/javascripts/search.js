@@ -1,7 +1,7 @@
 $(function() {
 
   let search_list = $("#user-search-result");
-  let selected_list = $(".chat-group-users");
+  let selected_list = $(".chat-group-form__field--rightdesu");
 
   function appendList(user) {
     let html = `<div class="chat-group-user clearfix">
@@ -11,7 +11,7 @@ $(function() {
     search_list.append(html)
   }
   function appendUser(user_id, user_name) {
-    let html = `<div id='chat-group-users'>
+    let html = `<div class='chat-group-users js-add-user'>
                   <div class='chat-group-user clearfix js-chat-member' id='${user_id}'>
                     <input name='group[user_ids][]' type='hidden' value='${user_id}'>
                       <p class='chat-group-user__name'>${user_name}</p>
