@@ -61,6 +61,7 @@ $(function() {
     appendUser(user_id, user_name);
     $(this).parent().remove();
   });
+  
   $(document).on('click','.user-search-remove', function(){
     $(this).parent().remove();
   });

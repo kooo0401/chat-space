@@ -73,6 +73,7 @@ $(function(){
       });
     });
 
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
     let reloadMessages = function() {
       let last_message_id = $(".message-content:last").data("message-id");
       $.ajax({
@@ -94,5 +95,6 @@ $(function(){
       });
     };
     setInterval(reloadMessages, 5000);
+    }
   });
 });
